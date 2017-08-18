@@ -42,7 +42,7 @@ public class LoginServlet extends HttpServlet {
 		
 		if(username==null||username.trim().isEmpty()){  
             request.setAttribute("msg", "帐号不能为空");   
-            request.getRequestDispatcher("/index1.jsp").forward(request, response);  
+            request.getRequestDispatcher("/index.jsp").forward(request, response);  
             return;  
         }  
 		
@@ -51,7 +51,7 @@ public class LoginServlet extends HttpServlet {
 		{
 			request.setAttribute("username", username); 
 			request.setAttribute("msg", "验证码输入不正确"); 
-			request.getRequestDispatcher("/index1.jsp").forward(request, response); 
+			request.getRequestDispatcher("/index.jsp").forward(request, response); 
 			return ;
 		}
 		
@@ -78,7 +78,7 @@ public class LoginServlet extends HttpServlet {
 		{
 			request.setAttribute("username", username); 
 			request.setAttribute("msg", "用户名或者密码错误"); 
-			request.getRequestDispatcher("/index1.jsp").forward(request, response); 
+			request.getRequestDispatcher("/index.jsp").forward(request, response); 
 			return ;
 		}
 		

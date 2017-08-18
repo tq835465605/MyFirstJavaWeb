@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.foxhis.toolUtils.VerifyCode;
 
-@WebServlet("/VerifyCode")
+@WebServlet("/verifycodesevlet")
 public class VerifyCodeServlet extends HttpServlet{
 
 	/**

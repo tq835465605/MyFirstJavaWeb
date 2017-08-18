@@ -12,8 +12,8 @@
  <div>
   <h1>注册</h1>
   <form action="register" method="post">
-   请输入帐号：<input type ="text" name="username" value="${username}"><font size="2" color="red">${usernamemsg}</font><br>
-   请输入密码：<input type ="password" name ="password" value="${password}"><font size="2" color="red">${passwordmsg}</font><br>
+   请输入帐号:<input type ="text" name="username" value="${username}"><font size="2" color="red">${usernamemsg}</font><br>
+   请输入密码:<input type ="password" name ="password" value="${password}"><font size="2" color="red">${passwordmsg}</font><br>
    请确认密码:<input type = "password" name ="repassword" value="${repassword}"><font size="2" color="red">${repasswordmsg}</font><br>
   <input type="submit" value="注册">
   <a href="index1.jsp" ><font size="4">取消</font></a>

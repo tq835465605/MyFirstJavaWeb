@@ -9,6 +9,7 @@ package com.foxhis.entity;
  */
 public class User {
 	
+	
 	/**
 	 * 用户名
 	 */
@@ -17,6 +18,7 @@ public class User {
 	 * 密码
 	 */
 	private String pass;
+	
 	
 	public String getUsername() {
 		return username;
@@ -30,4 +32,10 @@ public class User {
 	public void setPass(String password) {
 		this.pass = password;
 	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "[User] username="+username+",pass="+pass;
+	}
+	
 }

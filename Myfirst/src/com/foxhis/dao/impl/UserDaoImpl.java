@@ -25,6 +25,8 @@ public class UserDaoImpl implements UserDao{
 	private String DB_User = "root";
 	private String DB_Pwd = "foxhis"; */
 	
+	private SqlSession sqlSession;
+	
 	public UserDaoImpl() {
 		// TODO Auto-generated constructor stub
 		
@@ -32,6 +34,7 @@ public class UserDaoImpl implements UserDao{
 		 DB_Url = "jdbc:mysql://localhost:3306/xmsitf";
 		 DB_User = "root";
 		 DB_Pwd = "foxhis"; */
+		this.sqlSession=getSqlSession();
 	}
 	
 /*
@@ -76,41 +79,62 @@ public class UserDaoImpl implements UserDao{
 		return reb;
 	}*/
 	
+	/**
+	 * 注册用户
+	 */
 	public boolean registerUserByNameAndPass(User user)
 	{
-		 //定位配置文件
-        String resource= "MyBatis_Conf.xml";
-        //获取配置文件流
-        InputStream inputStream =this.getClass().getClassLoader().getResourceAsStream(resource);      
-        //通过SqlSessionFactoryBuilder class create a instance and use the fun build to create ssf
-        SqlSessionFactory ssf=new SqlSessionFactoryBuilder().build(inputStream);
-       //open the SqlSessionFactory
-        SqlSession sqlSess= ssf.openSession();
-        //
+		if(this.sqlSession==null)
+			this.sqlSession = getSqlSession();
+ 
         String paramString = "com.foxhis.mapping.UserMapper.addUser";
-        int i=sqlSess.insert(paramString, user);
+        int i=sqlSession.insert(paramString, user);
         System.out.println("加载用户名："+i);
-        sqlSess.close();
+        System.out.println(user.toString());
+        colseSqlSession();
         if(i>=1)
         	return true;
         else {
 		    return false;
 		}
 	}
-	public <T>T getMybatisConn(Map<String, Object> input)
-	{
-        //定位配置文件
+	
+	public SqlSession getSqlSession() {
+		//定位配置文件
         String resource= "MyBatis_Conf.xml";
         //获取配置文件流
-        InputStream inputStream =this.getClass().getClassLoader().getResourceAsStream(resource);
-        
-        //通过sqlsessionfactorybuilder class creat a instance and use the fun build to create ssf
+        InputStream inputStream =this.getClass().getClassLoader().getResourceAsStream(resource);      
+        //Use SqlSessionFactoryBuilder class Create a instance and use the fun build to create SqlSessionFactory
         SqlSessionFactory ssf=new SqlSessionFactoryBuilder().build(inputStream);
-       //open the sqlsessionfactory
+       //open the SqlSessionFactory
         SqlSession sqlSess= ssf.openSession();
+        return sqlSess;
+	}
+	
+	/**
+	 * Close The SqlSession
+	 */
+	public void colseSqlSession() {
+		if(this.sqlSession!=null)
+		{
+			this.sqlSession.clearCache();
+			this.sqlSession.close();
+			this.sqlSession =null;
+		}
+	}
+	
+	/**
+	 * Get the User entity
+	 * @param input 
+	 * @return
+	 */
+	public <T>T getMybatisConn(Map<String, Object> input)
+	{
+        if(sqlSession==null)
+        	this.sqlSession = getSqlSession();
         //
         String paramString = "com.foxhis.mapping.UserMapper.getUser";
-        return sqlSess.selectOne(paramString, input);
+        return sqlSession.selectOne(paramString, input);
         
         
 	}

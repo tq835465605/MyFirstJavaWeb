@@ -10,15 +10,12 @@
  parameterType指明白参数的类型    
  resultType为返回的类型 com.foxhis.entity.User为查询返回的一个实体-->
 
-
-
- <select id="getUser" parameterType="hashmap" resultType="com.foxhis.entity.User">
+ <select id="getUser" parameterType="hashmap" resultType="User">
          <!--  select * from users where id=#{id} -->
-         select * from username where username=#{username} and password=#{password}
+   select * from username where username=#{username} and password=#{password}
  </select>
  
- <insert id="addUser" parameterType="com.foxhis.entity.User" >
-     insert into username(username,password) values(#{username},#{pass})
-   
+ <insert  id="addUser" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+     insert into username (username, password) values( #{username}, #{pass} ) 
  </insert>
 </mapper>

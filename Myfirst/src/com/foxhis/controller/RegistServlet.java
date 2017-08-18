@@ -94,7 +94,7 @@ public class RegistServlet extends HttpServlet{
 		String forword = "";
 		if(isLogin)
 		{
-			forword = "success.jsp";
+			forword = "regsuccess.jsp";
 		}
 		else
 		{
