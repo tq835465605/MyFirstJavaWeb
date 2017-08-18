@@ -14,5 +14,11 @@
         
       </dataSource>
      </environment>
-   </environments>
+  </environments>
+   
+   
+   <!-- 注册 UserMapper.xml file,register the UserMapper use sign mappers-->
+   <mappers>
+      <mapper resource = "com/foxhis/mapping/UserMapper.xml"/>
+   </mappers>
  </configuration>

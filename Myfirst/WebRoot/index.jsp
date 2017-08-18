@@ -26,7 +26,7 @@
     <tr>  
     <td align="right"><font size="3">验证码：</font></td>  
     <td width="108" valign="middle"><input type="text" name="verifycode" style="width:100;height:25;"/></td>  
-    <td width="90" valign="middle"><a href="javascript:change()"><img src="VerifyCodeServlet" id="verify" border="0"></a></td>  
+    <td width="90" valign="middle"><a href="javascript:change()"><img src="VerifyCode" id="verify" border="0"></a></td>  
     </tr>  
     <tr><td colspan="3" align="center"><input type="submit" value="登录" style="width:130;height:30;"/></td></tr>  
    </table>  

@@ -1,7 +1,6 @@
 package com.foxhis.controller;
 
 import java.io.IOException;
-import java.nio.channels.SeekableByteChannel;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -48,7 +47,7 @@ public class LoginServlet extends HttpServlet {
         }  
 		
 		String session = (String)request.getSession().getAttribute("sessionverify");
-		if(!session.equalsIgnoreCase(verifycode))
+		if(session==null ||(session!=null && !session.equalsIgnoreCase(verifycode)))
 		{
 			request.setAttribute("username", username); 
 			request.setAttribute("msg", "验证码输入不正确"); 
