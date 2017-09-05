@@ -14,7 +14,7 @@ import com.foxhis.dao.impl.UserDaoImpl;
 import com.foxhis.entity.User;
 import com.foxhis.service.UserService;
 
-@WebServlet("/register")
+@WebServlet("/jsp/register")
 public class RegistServlet extends HttpServlet{
 
 	/**
@@ -44,20 +44,20 @@ public class RegistServlet extends HttpServlet{
 		
 		if(username==null||username.trim().isEmpty()){  
             request.setAttribute("usernamemsg", "帐号不能为空");   
-            request.getRequestDispatcher("/register.jsp").forward(request, response);  
+            request.getRequestDispatcher("register.jsp").forward(request, response);  
             return;  
         }  
 		if(pass==null||pass.trim().isEmpty()){  
             request.setAttribute("passwordmsg", "密码不能为空"); 
             request.setAttribute("username", username);  
-            request.getRequestDispatcher("/register.jsp").forward(request, response);  
+            request.getRequestDispatcher("register.jsp").forward(request, response);  
             return;  
         }  
 		if(repass==null||repass.trim().isEmpty()){  
 			request.setAttribute("username", username);  
 			request.setAttribute("password", pass); 
             request.setAttribute("repasswordmsg", "确认不能为空");  
-            request.getRequestDispatcher("/register.jsp").forward(request, response);  
+            request.getRequestDispatcher("register.jsp").forward(request, response);  
             return;  
         } 
 		if(!repass.equals(pass)){  
@@ -66,7 +66,7 @@ public class RegistServlet extends HttpServlet{
 			request.setAttribute("repassword", repass);  
             request.setAttribute("repasswordmsg", "确认密码与密码不一致，请重新输入");  
            
-            request.getRequestDispatcher("/register.jsp").forward(request, response);  
+            request.getRequestDispatcher("register.jsp").forward(request, response);  
             return;  
         } 
 		//定义实体
@@ -84,7 +84,7 @@ public class RegistServlet extends HttpServlet{
 		if(hasUser)
 		{
 			request.setAttribute("usernamemsg", "帐号已经被注册");  
-			request.getRequestDispatcher("/register.jsp").forward(request, response);  
+			request.getRequestDispatcher("register.jsp").forward(request, response);  
 			return;  
 		}
 		

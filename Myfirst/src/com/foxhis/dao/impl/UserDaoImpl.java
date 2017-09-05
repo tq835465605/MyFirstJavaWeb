@@ -89,6 +89,7 @@ public class UserDaoImpl implements UserDao{
  
         String paramString = "com.foxhis.mapping.UserMapper.addUser";
         int i=sqlSession.insert(paramString, user);
+        sqlSession.commit();
         System.out.println("加载用户名："+i);
         System.out.println(user.toString());
         colseSqlSession();

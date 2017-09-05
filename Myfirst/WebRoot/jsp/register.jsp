@@ -16,7 +16,7 @@
    请输入密码:<input type ="password" name ="password" value="${password}"><font size="2" color="red">${passwordmsg}</font><br>
    请确认密码:<input type = "password" name ="repassword" value="${repassword}"><font size="2" color="red">${repasswordmsg}</font><br>
   <input type="submit" value="注册">
-  <a href="index1.jsp" ><font size="4">取消</font></a>
+  <a href="../index.jsp" ><font size="4">取消</font></a>
   </form>
 
  </div>

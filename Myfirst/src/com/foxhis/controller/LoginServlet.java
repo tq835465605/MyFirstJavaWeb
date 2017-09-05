@@ -72,7 +72,7 @@ public class LoginServlet extends HttpServlet {
 		String forword = "";
 		if(isLogin)
 		{
-			forword = "success.jsp";
+			forword = "jsp/success.jsp";
 		}
 		else
 		{

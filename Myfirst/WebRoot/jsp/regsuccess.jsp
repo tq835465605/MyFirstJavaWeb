@@ -7,6 +7,6 @@
 <title>注册成功</title>
 </head>
 <body>
-注册成功<a href="index.jsp">返回登录界面</a>
+注册成功<a href="../index.jsp">返回登录界面</a>
 </body>
 </html>

@@ -31,7 +31,7 @@
     <tr><td colspan="3" align="center"><input type="submit" value="登录" style="width:130;height:30;"/></td></tr>  
    </table>  
 </form> 
-    <a href="register.jsp"><font size="2"><i>没有帐号？点击注册</i></font></a>   <br>
+    <a href="jsp/register.jsp"><font size="2"><i>没有帐号？点击注册</i></font></a>   <br>
      <font color="red" size="2">${msg}</font>
 
 <%-- 
