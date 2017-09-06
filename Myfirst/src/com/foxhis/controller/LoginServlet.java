@@ -41,19 +41,21 @@ public class LoginServlet extends HttpServlet {
 		String verifycode =request.getParameter("verifycode");
 		
 		if(username==null||username.trim().isEmpty()){  
-            request.setAttribute("msg", "帐号不能为空");   
+            request.setAttribute("msg", "帐号不能空");   
             request.getRequestDispatcher("/index.jsp").forward(request, response);  
             return;  
         }  
 		
-		String session = (String)request.getSession().getAttribute("sessionverify");
+		/*
+		 * 暂时不需要认证验证码
+		 * String session = (String)request.getSession().getAttribute("sessionverify");
 		if(session==null ||(session!=null && !session.equalsIgnoreCase(verifycode)))
 		{
 			request.setAttribute("username", username); 
 			request.setAttribute("msg", "验证码输入不正确"); 
 			request.getRequestDispatcher("/index.jsp").forward(request, response); 
 			return ;
-		}
+		}*/
 		
 		//定义实体
 		User user = new User();
