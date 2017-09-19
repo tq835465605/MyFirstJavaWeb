@@ -9,13 +9,19 @@
    设置select标签的属性id，其中id代表唯一标志该查询语句
  parameterType指明白参数的类型    
  resultType为返回的类型 com.foxhis.entity.User为查询返回的一个实体-->
+ 
+ <resultMap type="User" id="UserMap"> 
+    <result property="username" column="username"/>
+    <result property="pass" column="password"/>
+  
+ </resultMap>
 
- <select id="getUser" parameterType="hashmap" resultType="User">
+ <select id="findUserByNameAndPass" parameterType="User" resultMap="UserMap">
          <!--  select * from users where id=#{id} -->
-   select * from username where username=#{username} and password=#{password}
+   select * from username where username=#{username} and password=#{pass}
  </select>
  
- <insert  id="addUser" parameterType="User" useGeneratedKeys="true" keyProperty="id">
-     insert into username (username, password) values( #{username}, #{pass} ) 
+ <insert  id="registerUserByNameAndPass" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+    insert into username (username, password) values( #{username}, #{pass} ) 
  </insert>
 </mapper>

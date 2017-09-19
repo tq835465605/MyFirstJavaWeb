@@ -1,37 +1,34 @@
 package com.foxhis.service;
 
-import com.foxhis.dao.UserDao;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.foxhis.entity.User;
+import com.foxhis.mapping.UserMapper;
 
 /**
  * service层属于服务层，用于与dao层相结合处理的结果，提供数据服务给控制层
  * @author tq
  *
  */
+@Service
 public class UserService {
 	
-    private UserDao userdao;
+	@Autowired
+    private UserMapper usermapper;
     
-	
-	public UserDao getUserdao() {
-		return userdao;
-	}
 
-
-	public void setUserdao(UserDao userdao) {
-		this.userdao = userdao;
-	}
-
-
-	public boolean getLogin(User user)
+	public List<User> getLogin(User user)
 	{
-		return userdao.findUserByNameAndPass(user);
+		return this.usermapper.findUserByNameAndPass(user);
 		
 	}
 	
-	public boolean RegisterUser(User user)
+	public void RegisterUser(User user)
 	{
-		return userdao.registerUserByNameAndPass(user);
+		 this.usermapper.registerUserByNameAndPass(user);
 		
 	}
 	

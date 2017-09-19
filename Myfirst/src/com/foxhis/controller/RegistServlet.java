@@ -70,7 +70,7 @@ public class RegistServlet extends HttpServlet{
             return;  
         } 
 		//定义实体
-		User user = new User();
+		/*User user = new User();
 		user.setUsername(username);
 		user.setPass(pass);
 		//定义服务，用于干什么，该请求主要是登录
@@ -102,7 +102,7 @@ public class RegistServlet extends HttpServlet{
 		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher(forword);
-		rd.forward(request, response);
+		rd.forward(request, response);*/
 	}
 
 	/**

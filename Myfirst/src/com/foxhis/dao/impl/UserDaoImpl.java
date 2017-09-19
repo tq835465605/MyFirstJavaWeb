@@ -20,10 +20,6 @@ import com.foxhis.entity.User;
  */
 public class UserDaoImpl implements UserDao{
 	
-	/*private String DB_Driver = "com.mysql.jdbc.Driver";
-	private String DB_Url = "jdbc:mysql://localhost:3306/xmsitf";
-	private String DB_User = "root";
-	private String DB_Pwd = "foxhis"; */
 	
 	private SqlSession sqlSession;
 	
@@ -36,49 +32,7 @@ public class UserDaoImpl implements UserDao{
 		 DB_Pwd = "foxhis"; */
 		this.sqlSession=getSqlSession();
 	}
-	
-/*
-	public Connection getConn() throws SQLException, ClassNotFoundException
-	{
-		Class.forName(DB_Driver);
-		Connection conn = DriverManager.getConnection(DB_Url, DB_User, DB_Pwd);
-		return conn;
-	}
-	
-	
-	public boolean registerUserByNameAndPass(User user)
-	{
-		Connection conn=null;
-		PreparedStatement ps = null;
-		int rs = 0;
-		boolean reb = false;
 
-		try
-		{
-			conn=getConn();
-			if(conn!=null)
-			{
-				ps=conn.prepareStatement("insert into username (username,password) values (?,?)");
-				ps.setString(1, user.getUsername());
-				ps.setString(2, user.getPass());
-				rs = ps.executeUpdate();
-				if(rs>=1)
-				{
-					reb =true;
-				}
-				else
-				{
-					reb = false;
-				}
-			}
-		}
-		catch(Exception e)
-		{
-			JOptionPane.showMessageDialog(null, e.getMessage());
-		}
-		return reb;
-	}*/
-	
 	/**
 	 * 注册用户
 	 */

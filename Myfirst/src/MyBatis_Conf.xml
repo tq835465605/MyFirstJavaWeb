@@ -7,7 +7,7 @@
 		<typeAlias type="com.foxhis.entity.User" alias="User"/>
 	</typeAliases >
 	
-   <environments default="development">
+  <!--  <environments default="development">
      <environment id="development"> 
       <transactionManager type="JDBC"/>
     
@@ -19,11 +19,11 @@
         
       </dataSource>
      </environment>
-  </environments>
+  </environments> -->
    
    
    <!-- 注册 UserMapper.xml file,register the UserMapper use sign mappers-->
    <mappers>
-      <mapper resource = "com/foxhis/mapping/UserMapper.xml"/>
+      <package name = "com/foxhis/mapping"/>
    </mappers>
  </configuration>

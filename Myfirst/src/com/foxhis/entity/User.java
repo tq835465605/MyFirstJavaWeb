@@ -1,14 +1,14 @@
 package com.foxhis.entity;
 
-
+import org.springframework.stereotype.Component;
 
 /***
  * entity作为javabean数据对象实体层
  * @author tq
  *
  */
+@Component
 public class User {
-	
 	
 	/**
 	 * 用户名
